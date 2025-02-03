@@ -2,13 +2,15 @@
 
 ## BEFORE YOU BEGIN
 
-Please take your time to thoroughly read through this README. If anything is unclear or you think there is a mistake somewhere, please let us know via email. We recommend you spend around an hour or so on this test. Submission instructions are at the bottom of this README.
+Please take your time to thoroughly read through this README. If anything is unclear or you think there is a mistake somewhere, please let us know via email. We recommend you spend around 90 minutes on this test and do as much as you can. Submission instructions are at the bottom of this README.
 
-This test is split into two parts - a backend REST API section, and a frontend section. If you struggle to do the backend section, then please do the frontend section to the best of your ability by either faking/stubbing or not doing any API calls.
+This test is split into two parts - a backend REST API section, and a frontend section. If you struggle to finish the backend section, then please do the frontend section to the best of your ability by either faking/stubbing or not doing any API calls.
 
-We suggest you spend around 60-90 minutes on this in total, and do as much as you can. Do not worry if you do not finish everything. We also encourage you to:
+Do not worry if you do not finish everything. If in doubt, err on the side of quality.
 
-- Use Google, Stackoverflow, online documentation, ChatGPT as much as you require.
+We also encourage you to:
+
+- Use Google, Stackoverflow, online documentation, AI as much as you require.
 - Write tests if you think they are beneficial, but only if you think they are within reason of the time limit.
 - Install and use any third party packages if you see fit
 - Think about what you would do if you had more time, or if this was a real-world production project. We may ask further questions about your solution in further interviews.
@@ -19,9 +21,9 @@ We suggest you spend around 60-90 minutes on this in total, and do as much as yo
 - The code should be written in Typescript and _must_ compile and run, on Node 18 or later.
 - We take into account your previous experience with TypeScript.
 - Don't implement anything unnecessary - i.e. authentication, database, containerization. We won't give additional credit for that.
-- 
+
 ## Description
- As a highly personalized service, communications to our customers must be tailored purr-fectly and personalized to each and every customer. As we have multiple channels of communications (i.e. emails, SMS, landing pages), we like to keep the templating logic for this channel-agnostic and in a dedicated REST API service.
+ As a highly personalised service, communications to our customers must be tailored purr-fectly and personalised to each and every customer. As we have multiple channels of communications (i.e. emails, SMS, landing pages), we like to keep the templating logic for this channel-agnostic and in a dedicated REST API service.
 
  For example, calling `GET /comms/welcome-fresh/<USER-ID>` might return
 ```json
