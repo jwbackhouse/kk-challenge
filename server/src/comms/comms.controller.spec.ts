@@ -35,6 +35,19 @@ describe('CommsController', () => {
         });
     });
 
+    // Have added a user to data.json for this scenario, assuming
+    // it could happen in real life
+    it('should return 404 if user has no active subscriptions', async () => {
+      return request(app.getHttpServer())
+        .get('/comms/your-next-delivery/5d44721c-2af4-495b-9c83-d4c31ed73be4')
+        .expect(404)
+        .expect((res) => {
+          expect(res.body.message).toStrictEqual(
+            'User has no active subscriptions',
+          );
+        });
+    });
+
     it.todo(
       'should return 401 if authentication fails (and other similar checks)',
     );
@@ -50,17 +63,17 @@ describe('CommsController', () => {
         freeGift: false,
       },
       {
-        id: '749cf471-3747-40c6-9a38-f6e94242c4a2',
-        firstName: 'Jamarcus',
-        cats: 'Ryann and Tina',
-        price: '115.00',
-        freeGift: false,
+        id: '33b449a6-d92b-4609-9910-69a8979a04b2',
+        firstName: 'Pete',
+        cats: 'Braulio and Georgianna',
+        price: '137.25',
+        freeGift: true,
       },
       {
-        id: '76d6eb8d-5c2e-49f7-b798-d69700dda4c3',
-        firstName: 'Dolores',
-        cats: 'Destiny, Tiffany and Alexandre',
-        price: '186.25',
+        id: 'ea17433d-7527-45a5-acbc-2e2f78f95c6e',
+        firstName: 'Santiago',
+        cats: 'Cristina, Mariah and Rebekah',
+        price: '197.50',
         freeGift: true,
       },
     ])(

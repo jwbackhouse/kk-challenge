@@ -16,13 +16,23 @@ export class CommsController {
 
     const users: Array<User> = JSON.parse(data);
     const user = users.find((user) => user.id === userId);
-
     if (!user) {
+      // We may not want to return a message for security purpooses,
+      // but have included here for clarity
       throw new NotFoundException('User not found');
     }
 
-    const price = this.commsService.getTotalPrice(user.cats);
-    const result = this.commsService.getNextDeliveryMessage(user, price);
+    const activeCats = user.cats.filter((cat) => cat.subscriptionActive);
+    if (!activeCats.length) {
+      throw new NotFoundException('User has no active subscriptions');
+    }
+
+    const price = this.commsService.getTotalPrice(activeCats);
+    const result = this.commsService.getNextDeliveryMessage({
+      firstName: user.firstName,
+      cats: activeCats,
+      price,
+    });
 
     return result;
   }

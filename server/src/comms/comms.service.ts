@@ -23,12 +23,19 @@ export class CommsService {
     return totalPrice;
   }
 
-  getNextDeliveryMessage(user: User, price: number) {
-    const { cats, firstName } = user;
+  getNextDeliveryMessage({
+    firstName,
+    cats,
+    price,
+  }: {
+    firstName: string;
+    cats: Array<Cat>;
+    price: number;
+  }) {
     const catNames = concatenateCats(cats);
 
-    // Ideally this text would live in a separate file for ease of editing.
-    // Possibly in a CMS so changes can be made without needing a deployment.
+    // Ideally this text would live in a separate file for ease of editing -
+    // possibly in a CMS so changes can be made without needing a deployment.
     // This would also allow for translations.
     const title = `Your next delivery for ${catNames}`;
     const message = `Hey ${firstName}! In two days' time, we'll be charging you for ${catNames}'s fresh food.`;
