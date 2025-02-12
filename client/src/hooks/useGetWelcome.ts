@@ -1,12 +1,16 @@
+import { z } from 'zod';
 import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
 
-type WelcomeData = {
-  title: string;
-  message: string;
-  totalPrice: string;
-  freeGift: boolean;
-};
+// Ideally this type would be shared with the backend via
+// OpenAPI / ts-rest / similar
+const welcomeDataSchema = z.object({
+  title: z.string(),
+  message: z.string(),
+  totalPrice: z.string(),
+  freeGift: z.boolean(),
+});
+type WelcomeData = z.infer<typeof welcomeDataSchema>;
 
 type WelcomeError = {
   message: string;
@@ -25,7 +29,13 @@ const fetchWelcomeMessage = async (userId?: string): Promise<WelcomeData> => {
     };
     throw error;
   }
-  return response.json();
+
+  const data = await response.json();
+  if (!welcomeDataSchema.safeParse(data).success) {
+    throw new Error('Invalid data');
+  }
+
+  return data;
 };
 
 export const useWelcomeMessage = () => {
