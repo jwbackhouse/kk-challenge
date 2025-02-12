@@ -1,11 +1,12 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
+import { Welcome } from '../pages/Welcome';
 
-const DEFAULT_USER_ID = '618f4ed6-1c5b-4993-a149-f64700bf31dd';
+const DEFAULT_USER_ID = 'ff535484-6880-4653-b06e-89983ecf4ed5';
 
 export function AppRoutes() {
   return (
     <Routes>
-      <Route path="/welcome/:userId" element={<h1>hello world</h1>} />
+      <Route path="/welcome/:userId" element={<Welcome />} />
 
       {/* Redirect to a valid URL for the purposes of this exercise*/}
       <Route

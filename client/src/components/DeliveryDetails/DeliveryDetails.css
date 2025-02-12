@@ -1,0 +1,48 @@
+.delivery-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  width: 100%;
+}
+
+.delivery-title {
+  margin-block-end: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.3;
+  color: var(--colour-primary);
+}
+
+.delivery-message {
+  margin-block-end: 20px;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.3;
+  color: var(--colour-secondary);
+}
+
+.delivery-price {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.5;
+  color: var(--colour-secondary);
+}
+
+@media (max-width: 768px) {
+  .delivery-details {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .delivery-title {
+    font-size: 14px;
+  }
+
+  .delivery-message,
+  .delivery-price {
+    font-size: 12px;
+  }
+}

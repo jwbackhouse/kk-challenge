@@ -1,0 +1,23 @@
+.badge {
+  position: absolute;
+  top: 0;
+  right: -8px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--colour-highlight-primary);
+  background-color: var(--colour-highlight-secondary);
+  border-radius: 2px;
+  transform: rotate(10deg);
+  text-transform: uppercase;
+}
+
+
+@media (max-width: 768px) {
+  .badge {
+    top: unset;
+    right: 50%;
+    bottom: 0;
+    transform: translate(50%, 50%) rotate(-5deg);
+  }
+}
