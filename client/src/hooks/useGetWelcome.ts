@@ -35,7 +35,6 @@ export const useWelcomeMessage = () => {
     queryKey: ['welcomeMessage', userId],
     queryFn: () => fetchWelcomeMessage(userId),
     staleTime: 1000 * 60 * 5, // 5 minutes
-    retry: 3,
     enabled: !!userId,
   });
 };

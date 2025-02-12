@@ -1,0 +1,10 @@
+.error-container {
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.error-title {
+  font-size: 32px;
+  padding-block-end: 16px;
+}
