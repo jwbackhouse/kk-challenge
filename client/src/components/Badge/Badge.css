@@ -1,6 +1,6 @@
 .badge {
   position: absolute;
-  top: 0;
+  top: -10px;
   right: -8px;
   padding: 4px 12px;
   font-size: 12px;

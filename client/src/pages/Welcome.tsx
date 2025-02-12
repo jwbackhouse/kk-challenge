@@ -3,7 +3,8 @@ import { Badge } from '../components/Badge';
 import { DeliveryDetails } from '../components/DeliveryDetails';
 import './Welcome.css';
 
-import image from '../assets/test.png';
+// No image optimzation done here!
+import image from '../assets/cat.jpg';
 import { useWelcomeMessage } from '../hooks/useGetWelcome';
 
 export function Welcome() {
@@ -15,7 +16,7 @@ export function Welcome() {
     return <div>Loading...</div>;
   }
   return (
-    <div className="welcome-container">
+    <main className="welcome-container">
       <div className="welcome-card">
         <div className="welcome-image-container">
           <img
@@ -30,6 +31,6 @@ export function Welcome() {
         </div>
       </div>
       {data?.freeGift ? <Badge /> : null}
-    </div>
+    </main>
   );
 }
