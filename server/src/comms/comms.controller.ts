@@ -1,7 +1,13 @@
-import { Controller, Get, NotFoundException, Param } from '@nestjs/common';
+import {
+  BadRequestException,
+  Controller,
+  Get,
+  NotFoundException,
+  Param,
+} from '@nestjs/common';
 import * as fs from 'fs';
 import { promisify } from 'util';
-import { User } from './comms.schema';
+import { User, userSchema } from './comms.schema';
 import { CommsService } from './comms.service';
 
 const readFile = promisify(fs.readFile);
@@ -16,9 +22,12 @@ export class CommsController {
 
     const users: Array<User> = JSON.parse(data);
     const user = users.find((user) => user.id === userId);
+    if (!userSchema.safeParse(user).success) {
+      // We may not want to return messages here and below for security purposes,
+      // but have included for clarity
+      throw new BadRequestException('Invalid user data');
+    }
     if (!user) {
-      // We may not want to return a message for security purpooses,
-      // but have included here for clarity
       throw new NotFoundException('User not found');
     }
 

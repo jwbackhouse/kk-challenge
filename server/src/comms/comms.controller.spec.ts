@@ -48,9 +48,7 @@ describe('CommsController', () => {
         });
     });
 
-    it.todo(
-      'should return 401 if authentication fails (and other similar checks)',
-    );
+    it.todo('should return 400 if user data is invalid');
 
     // For the purposes of the exercise I'm hardcoding information in the
     // data.json file. In real life we'd use a test database with mock data
