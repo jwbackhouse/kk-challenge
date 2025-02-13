@@ -16,10 +16,12 @@ The client and server are separate apps inside this repository.
   ```sh
   cd server
   yarn
-  yarn start
+  yarn start:dev
   ```
 
 The app will now be running on [http://localhost:5173](http://localhost:5173), with the backend on [http://localhost:3000](http://localhost:3000)
+
+By default, the client will redirect you to a URL containing a valid user ID. You can obviously then change the user ID to see different responses or how it handles errors.
 
 ## Approach
 
